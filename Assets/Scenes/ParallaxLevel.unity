@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 467210488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68491acc4f7f24a3b89d46e06c4bebf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 0af5878bfcf3c4c8c8c0e929154d57ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   overlay: {fileID: 338875327}
@@ -1796,11 +1796,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234708835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e5b9eecd2ac041e3b3e03fe0511a76b, type: 3}
+  m_Script: {fileID: 11500000, guid: a6715fb188f5e46ebae18add5eaf2d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1234708838}
-  lerpDuration: 30
+  lerpDuration: 20
 --- !u!114 &1234708838
 MonoBehaviour:
   m_ObjectHideFlags: 0

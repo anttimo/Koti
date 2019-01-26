@@ -218,12 +218,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 87991991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9abd9a9abe5141789edb6c72ca38d41, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dcaea11194eb4728b6841259f19a3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1617097060}
   thinkBubble: {fileID: 1961461177}
-  logo: {fileID: 1852263371}
+  logo: {fileID: 488764586}
 --- !u!4 &87991993
 Transform:
   m_ObjectHideFlags: 0

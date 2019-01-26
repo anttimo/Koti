@@ -8,7 +8,7 @@ public class DimPanel : MonoBehaviour
 
     public Image image;
 
-    public float lerpDuration = 2f;
+    public float lerpDuration = 20f;
     private float lerpStart = 0;
     private float progress;
 
