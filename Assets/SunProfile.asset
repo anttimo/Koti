@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: SkyBoxProfile
+  m_Name: SunProfile
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -28,7 +28,7 @@ MonoBehaviour:
   fog:
     m_Enabled: 0
     m_Settings:
-      excludeSkybox: 0
+      excludeSkybox: 1
   antialiasing:
     m_Enabled: 0
     m_Settings:
@@ -43,7 +43,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 0
     m_Settings:
-      intensity: 4
+      intensity: 1
       radius: 0.3
       sampleCount: 10
       downsampling: 1
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       focusDistance: 10
-      aperture: 6.7
+      aperture: 5.6
       focalLength: 50
       useCameraFov: 0
       kernelSize: 1
@@ -101,16 +101,16 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.89
-        threshold: 1.69
-        softKnee: 0.36
-        radius: 4.1
+        intensity: 5.45
+        threshold: 1.22
+        softKnee: 0.5
+        radius: 7
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 2
@@ -135,9 +135,9 @@ MonoBehaviour:
       colorWheels:
         mode: 1
         log:
-          slope: {r: 0.7349769, g: 1, b: 0.53283155, a: 0}
-          power: {r: 1, g: 0.6282301, b: 0.4848541, a: 0}
-          offset: {r: 0.58621037, g: 1, b: 0.5635667, a: 0}
+          slope: {r: 1, g: 0.7002652, b: 0.89911747, a: 0}
+          power: {r: 1, g: 0.96159977, b: 0.8019481, a: 0}
+          offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
           lift: {r: 0, g: 0, b: 0, a: 0}
           gamma: {r: 0, g: 0, b: 0, a: 0}
@@ -309,7 +309,7 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0
+      intensity: 0.1
   grain:
     m_Enabled: 0
     m_Settings:
@@ -318,17 +318,17 @@ MonoBehaviour:
       size: 1
       luminanceContribution: 0.8
   vignette:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.26
-      smoothness: 0.47
+      intensity: 0.45
+      smoothness: 0.2
       roundness: 1
       mask: {fileID: 0}
       opacity: 1
-      rounded: 1
+      rounded: 0
   dithering:
     m_Enabled: 0
   monitors:
