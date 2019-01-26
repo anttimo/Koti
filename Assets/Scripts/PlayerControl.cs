@@ -8,25 +8,28 @@ public class PlayerControl : MonoBehaviour
     public Camera cameraFollow;
     public float jumpSpeed = 10;
     public float runSpeed = 5;
+    public GameObject head;
 
+    private float originalHeadY = 0;
     private Rigidbody2D rb;
-    private BoxCollider2D collider;
-    private Sprite sprite;
+    private BoxCollider2D boxCollider;
+    private SpriteRenderer sr;
 
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        collider = this.GetComponent<BoxCollider2D>();
-        sprite = this.GetComponent<Sprite>();
+        rb = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        sr = GetComponent<SpriteRenderer>();
+        originalHeadY = head.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.cameraFollow.transform.position = new Vector3(
-            this.transform.position.x,
-            this.transform.position.y,
-            this.cameraFollow.transform.position.z
+        cameraFollow.transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y,
+            cameraFollow.transform.position.z
         );
 
         var hasTouch = Input.touchCount > 0 || Input.GetMouseButtonDown(0);
@@ -36,14 +39,25 @@ public class PlayerControl : MonoBehaviour
         var isOnGround = false;
         foreach (var c in contacts)
         {
-            if (c.rigidbody != null && c.rigidbody.CompareTag("Ground")) {
+            if (c.rigidbody != null && c.rigidbody.CompareTag("Ground"))
+            {
                 isOnGround = true;
                 break;
             }
         }
-        if (hasTouch && isOnGround) {
+        head.transform.localPosition = new Vector3(
+            head.transform.localPosition.x,
+            originalHeadY + Mathf.Clamp(
+                this.transform.position.y * 0.1f, -0.1f, 0.1f
+            ),
+            head.transform.localPosition.z
+        );
+        if (hasTouch && isOnGround)
+        {
             rb.velocity = new Vector2(runSpeed, jumpSpeed);
-        } else {
+        }
+        else
+        {
             rb.velocity = new Vector2(runSpeed, rb.velocity.y);
         }
     }
