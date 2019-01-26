@@ -30,7 +30,7 @@ public class PlayerControl : MonoBehaviour
     {
         cameraFollow.transform.position = new Vector3(
             transform.position.x + 4,
-            transform.position.y + 3,
+            cameraFollow.transform.position.y,
             cameraFollow.transform.position.z
         );
 
