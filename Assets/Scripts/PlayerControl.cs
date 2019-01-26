@@ -10,7 +10,8 @@ public class PlayerControl : MonoBehaviour
     public float runSpeed = 5;
     public GameObject head;
 
-    private float originalHeadY = -2.5f;
+    private float originalHeadY;
+    private float originalY;
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
     private SpriteRenderer sr;
@@ -20,7 +21,8 @@ public class PlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
-        originalHeadY = head.transform.position.y;
+        originalHeadY = head.transform.localPosition.y;
+        originalY = transform.position.y;
     }
 
     // Update is called once per frame
@@ -48,7 +50,7 @@ public class PlayerControl : MonoBehaviour
         head.transform.localPosition = new Vector3(
             head.transform.localPosition.x,
             originalHeadY + Mathf.Clamp(
-                this.transform.position.y * 0.1f, -0.1f, 0.1f
+                (this.transform.position.y - originalY) * 0.1f, -0.1f, 0.1f
             ),
             head.transform.localPosition.z
         );
