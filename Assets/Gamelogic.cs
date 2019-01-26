@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class Gamelogic : MonoBehaviour
@@ -40,6 +41,12 @@ public class Gamelogic : MonoBehaviour
         {
             thinkBubble.SetActive(false);
         });
-        sequence.Append(player.transform.DOMoveX(20, 4));
+        sequence.Append(player.transform.DOMoveX(10, 3));
+        sequence.AppendCallback(() =>
+        {
+            Debug.Log("Change active scene");
+            SceneManager.LoadScene("ParallaxLevel", LoadSceneMode.Single);
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("ParallaxLevel"));
+        });
     }
 }
