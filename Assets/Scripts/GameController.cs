@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public int FoodCount { get; set; } = 0;
+    public bool GameOver { get; set; } = false;
     public static GameController instance = null;
     void Awake()
     {

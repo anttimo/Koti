@@ -16,6 +16,8 @@ public class PlayerControl : MonoBehaviour
     private BoxCollider2D boxCollider;
     private SpriteRenderer sr;
 
+    private float minY;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,32 +37,37 @@ public class PlayerControl : MonoBehaviour
         );
 
         var hasTouch = Input.touchCount > 0 || Input.GetMouseButtonDown(0);
-
-        var contacts = new ContactPoint2D[2];
-        rb.GetContacts(contacts);
-        var isOnGround = false;
-        foreach (var c in contacts)
-        {
-            if (c.rigidbody != null && c.rigidbody.CompareTag("Ground"))
-            {
-                isOnGround = true;
-                break;
-            }
-        }
         head.transform.localPosition = new Vector3(
             head.transform.localPosition.x,
             originalHeadY + Mathf.Clamp(
-                (this.transform.position.y - originalY) * 0.1f, -0.1f, 0.1f
+                (transform.position.y - originalY) * 0.1f, -0.1f, 0.1f
             ),
             head.transform.localPosition.z
         );
-        if (hasTouch && isOnGround)
+        if (minY == 0)
+        {
+            var contacts = new ContactPoint2D[2];
+            rb.GetContacts(contacts);
+            foreach (var c in contacts)
+            {
+                if (c.rigidbody != null && c.rigidbody.CompareTag("Ground"))
+                {
+                    minY = transform.position.y;
+                    break;
+                }
+            }
+            return;
+        }
+        if (hasTouch && transform.position.y >= minY)
         {
             rb.velocity = new Vector2(runSpeed, jumpSpeed);
+            return;
         }
-        else
+        if (transform.position.y >= minY)
         {
             rb.velocity = new Vector2(runSpeed, rb.velocity.y);
+            return;
         }
+        GameController.instance.GameOver = true;
     }
 }
