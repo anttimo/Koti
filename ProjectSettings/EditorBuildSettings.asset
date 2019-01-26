@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: 88a6a16fb81914fcf97f3ea083302643
+  - enabled: 1
+    path: Assets/Scenes/ParallaxLevel.unity
+    guid: f815127e249dd49b8bfdc4be7f7c6cbf
   m_configObjects: {}
