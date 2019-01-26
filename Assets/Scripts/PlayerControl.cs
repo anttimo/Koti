@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
     public float runSpeed = 5;
     public GameObject head;
 
-    private float originalHeadY = 0;
+    private float originalHeadY = -2.5f;
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
     private SpriteRenderer sr;
@@ -27,8 +27,8 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         cameraFollow.transform.position = new Vector3(
-            transform.position.x,
-            transform.position.y,
+            transform.position.x + 4,
+            transform.position.y + 3,
             cameraFollow.transform.position.z
         );
 
