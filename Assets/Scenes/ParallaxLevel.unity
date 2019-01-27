@@ -506,7 +506,6 @@ GameObject:
   m_Component:
   - component: {fileID: 218215690}
   - component: {fileID: 218215692}
-  - component: {fileID: 218215691}
   m_Layer: 0
   m_Name: CameraNear
   m_TagString: Untagged
@@ -528,19 +527,6 @@ Transform:
   m_Father: {fileID: 519420032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &218215691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218215689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 15230f696e98d44868f883e1165381c4, type: 2}
 --- !u!20 &218215692
 Camera:
   m_ObjectHideFlags: 0
@@ -1208,7 +1194,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
@@ -1378,7 +1364,6 @@ GameObject:
   m_Component:
   - component: {fileID: 603866191}
   - component: {fileID: 603866192}
-  - component: {fileID: 603866193}
   m_Layer: 0
   m_Name: CameraFar
   m_TagString: Untagged
@@ -1442,19 +1427,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &603866193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603866190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 3c6a59117a109410382fc63b908f8a84, type: 2}
 --- !u!1 &781940298
 GameObject:
   m_ObjectHideFlags: 0
