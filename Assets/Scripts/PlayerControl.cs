@@ -59,7 +59,7 @@ public class PlayerControl : MonoBehaviour
             cameraFollow.transform.position.z
         );
 
-        var hasTouch = Input.touchCount > 0 || Input.GetMouseButtonDown(0);
+        var hasTouch = Input.touchCount > 0 || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space);
         head.transform.localPosition = new Vector3(
             head.transform.localPosition.x,
             originalHeadY + Mathf.Clamp(
