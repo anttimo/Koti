@@ -85,13 +85,14 @@ public class PlayerControl : MonoBehaviour
         }
 
         var diff = transform.position.y - minY;
-        if (Mathf.Abs(diff) < 0.1 && jumping)
+        var isOnGround = Mathf.Abs(diff) < 0.1;
+        if (isOnGround && jumping)
         {
             jumping = false;
             splash.Play();
         }
 
-        if (hasTouch && diff < 0.1 && diff > -0.1)
+        if (hasTouch && isOnGround)
         {
             rb.velocity = new Vector2(runSpeed, jumpSpeed);
             jumping = true;
