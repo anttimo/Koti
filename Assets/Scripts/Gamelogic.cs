@@ -15,7 +15,10 @@ public class Gamelogic : MonoBehaviour
 
     void Start()
     {
-        GameController.instance.GameOver = false;
+        if (GameController.instance)
+        {
+            GameController.instance.GameOver = false;
+        }
     }
 
     // Start is called before the first frame update
