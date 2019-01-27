@@ -44,7 +44,6 @@ public class Gamelogic : MonoBehaviour
         sequence.Append(player.transform.DOMoveX(10, 3));
         sequence.AppendCallback(() =>
         {
-            Debug.Log("Change active scene");
             SceneManager.LoadScene("ParallaxLevel", LoadSceneMode.Single);
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("ParallaxLevel"));
         });
