@@ -13,6 +13,10 @@ public class Gamelogic : MonoBehaviour
 
     public GameObject logo;
 
+    void Start()
+    {
+        GameController.instance.GameOver = false;
+    }
 
     // Start is called before the first frame update
     void Update()
@@ -46,7 +50,7 @@ public class Gamelogic : MonoBehaviour
         sequence.AppendCallback(() =>
         {
             SceneManager.LoadScene("ParallaxLevel", LoadSceneMode.Single);
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("ParallaxLevel"));
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("ParallaxLevel"));
         });
     }
 }
