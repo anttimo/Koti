@@ -27,6 +27,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private float minY = float.NaN;
 
+    private bool jumping = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -77,13 +79,21 @@ public class PlayerControl : MonoBehaviour
                     break;
                 }
             }
+
             return;
         }
 
         var diff = transform.position.y - minY;
+        if (Mathf.Abs(diff) < 0.05 && jumping)
+        {
+            jumping = false;
+            Debug.Log("LANDED!");
+        }
+
         if (hasTouch && diff < 0.1 && diff > -0.1)
         {
             rb.velocity = new Vector2(runSpeed, jumpSpeed);
+            jumping = true;
             return;
         }
         if (diff > -0.1)
