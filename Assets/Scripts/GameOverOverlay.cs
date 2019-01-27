@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameOverOverlay : MonoBehaviour
 {
     public GameObject overlay;
-    private bool showing = false;
 
     void Update()
     {
