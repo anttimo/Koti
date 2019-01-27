@@ -31,6 +31,7 @@ public class Gamelogic : MonoBehaviour
     {
         //logo.SetActive(false);
         Sequence sequence = DOTween.Sequence();
+        sequence.AppendInterval(1f);
         sequence.Append(player.transform.DOMoveX(-0.65f, 2));
         sequence.AppendCallback(() =>
         {

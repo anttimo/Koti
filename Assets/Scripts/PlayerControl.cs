@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -10,6 +13,11 @@ public class PlayerControl : MonoBehaviour
     public float runSpeed = 5;
     public GameObject head;
 
+    public GameObject thinkBubble;
+
+    public GameObject dimmingPanel;
+    public int mushroomTarget = 6;
+    public bool goalReached = false;
     private float originalHeadY;
     private float originalY;
     private Rigidbody2D rb;
@@ -32,6 +40,16 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (goalReached)
+        {
+            return;
+        }
+
+        if (GameController.instance.FoodCount == mushroomTarget)
+        {
+            goalReached = true;
+            GoHome();
+        }
         cameraFollow.transform.position = new Vector3(
             transform.position.x + 4,
             cameraFollow.transform.position.y,
@@ -78,5 +96,23 @@ public class PlayerControl : MonoBehaviour
             return;
         }
         GameController.instance.ReloadLevel();
+    }
+
+    void GoHome()
+    {
+        dimmingPanel.SetActive(false);
+        Sequence sequence = DOTween.Sequence();
+        sequence.AppendCallback(() =>
+        {
+            thinkBubble.SetActive(true);
+        });
+        sequence.AppendInterval(2f);
+
+        sequence.AppendCallback(() =>
+        {
+            SceneManager.LoadScene("HomeScene", LoadSceneMode.Single);
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("HomeScene"));
+            goalReached = false;
+        });
     }
 }
