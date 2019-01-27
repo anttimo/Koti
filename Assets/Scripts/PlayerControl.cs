@@ -58,7 +58,7 @@ public class PlayerControl : MonoBehaviour
             }
             return;
         }
-        if (hasTouch && transform.position.y >= minY)
+        if (hasTouch && transform.position.y - minY < 0.1 && transform.position.y - minY > 0)
         {
             rb.velocity = new Vector2(runSpeed, jumpSpeed);
             return;
