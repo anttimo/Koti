@@ -4199,12 +4199,12 @@ PrefabInstance:
     - target: {fileID: 4410761268569800123, guid: fb7b7da6c829e4a51bb374590a087fcc,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 49
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 4410761268876830276, guid: fb7b7da6c829e4a51bb374590a087fcc,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 49
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 4410761269074265111, guid: fb7b7da6c829e4a51bb374590a087fcc,
         type: 3}
