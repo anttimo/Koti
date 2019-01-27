@@ -13,14 +13,6 @@ public class Gamelogic : MonoBehaviour
 
     public GameObject logo;
 
-    void Start()
-    {
-        if (GameController.instance)
-        {
-            GameController.instance.GameOver = false;
-        }
-    }
-
     // Start is called before the first frame update
     void Update()
     {

@@ -18,7 +18,8 @@ public class GameOverOverlay : MonoBehaviour
             if (hasTouch)
             {
                 SceneManager.LoadScene("HomeScene", LoadSceneMode.Single);
-                //SceneManager.SetActiveScene(SceneManager.GetSceneByName("HomeScene"));
+                GameController.instance.GameOver = false;
+                GameController.instance.FoodCount = 0;
             }
         }
     }
