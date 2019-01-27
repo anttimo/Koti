@@ -103,6 +103,7 @@ public class PlayerControl : MonoBehaviour
         {
             SceneManager.LoadScene("HomeScene", LoadSceneMode.Single);
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("HomeScene"));
+            goalReached = false;
         });
     }
 }

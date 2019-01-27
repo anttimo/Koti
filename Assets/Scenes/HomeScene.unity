@@ -4690,6 +4690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThinkBubble
       objectReference: {fileID: 0}
+    - target: {fileID: 4495923015639998690, guid: eb7e276b274f14d52a5b62f0f7d69920,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4495923015639998689, guid: eb7e276b274f14d52a5b62f0f7d69920,
         type: 3}
       propertyPath: m_LocalPosition.x
