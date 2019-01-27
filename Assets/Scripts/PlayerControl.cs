@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject head;
 
     public GameObject thinkBubble;
+    public ParticleSystem splash;
 
     public GameObject dimmingPanel;
     public int mushroomTarget = 6;
@@ -26,7 +27,7 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField]
     private float minY = float.NaN;
-
+    [SerializeField]
     private bool jumping = false;
 
     void Start()
@@ -84,10 +85,10 @@ public class PlayerControl : MonoBehaviour
         }
 
         var diff = transform.position.y - minY;
-        if (Mathf.Abs(diff) < 0.05 && jumping)
+        if (Mathf.Abs(diff) < 0.1 && jumping)
         {
             jumping = false;
-            Debug.Log("LANDED!");
+            splash.Play();
         }
 
         if (hasTouch && diff < 0.1 && diff > -0.1)
