@@ -16,7 +16,7 @@ public class Gamelogic : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        var hasTouch = Input.touchCount > 0 || Input.GetMouseButtonDown(0);
+        var hasTouch = Input.touchCount > 0 || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space);
 
         if (hasTouch && !hasStarted)
         {
