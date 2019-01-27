@@ -16,7 +16,8 @@ public class PlayerControl : MonoBehaviour
     private BoxCollider2D boxCollider;
     private SpriteRenderer sr;
 
-    private float minY;
+    [SerializeField]
+    private float minY = float.NaN;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerControl : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         originalHeadY = head.transform.localPosition.y;
         originalY = transform.position.y;
+        Debug.Log("Start");
     }
 
     // Update is called once per frame
@@ -44,7 +46,8 @@ public class PlayerControl : MonoBehaviour
             ),
             head.transform.localPosition.z
         );
-        if (minY == 0)
+
+        if (float.IsNaN(minY))
         {
             var contacts = new ContactPoint2D[2];
             rb.GetContacts(contacts);
@@ -58,16 +61,22 @@ public class PlayerControl : MonoBehaviour
             }
             return;
         }
-        if (hasTouch && transform.position.y - minY < 0.1 && transform.position.y - minY > 0)
+
+        var diff = transform.position.y - minY;
+        if (hasTouch && diff < 0.1 && diff > -0.1)
         {
             rb.velocity = new Vector2(runSpeed, jumpSpeed);
             return;
         }
-        if (transform.position.y >= minY)
+        if (diff > -0.1)
         {
             rb.velocity = new Vector2(runSpeed, rb.velocity.y);
             return;
         }
-        GameController.instance.GameOver = true;
+        if (GameController.instance.ReloadInProgress)
+        {
+            return;
+        }
+        GameController.instance.ReloadLevel();
     }
 }

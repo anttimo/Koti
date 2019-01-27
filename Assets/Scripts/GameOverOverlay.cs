@@ -5,17 +5,14 @@ using UnityEngine;
 public class GameOverOverlay : MonoBehaviour
 {
     public GameObject overlay;
+    private bool showing = false;
+
     void Update()
     {
         if (GameController.instance.GameOver)
         {
-            StartCoroutine(GameOver());
+            overlay.SetActive(GameController.instance.GameOver);
         }
     }
 
-    IEnumerator GameOver()
-    {
-        yield return new WaitForSeconds(1);
-        overlay.SetActive(GameController.instance.GameOver);
-    }
 }
